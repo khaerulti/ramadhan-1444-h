@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>home</title>
+    <style>
+        audio{
+            display: block;
+            width: 120px;
+            height: 20px;
+            
+        }
+    .audio{
+position: absolute;
+display:flex;
+width: 100px;
+
+bottom: 0;
+transform: translate(-50%, -50%);
+width: auto;
+z-index: 10;
+left:50%;
+    }
+    
+    </style>
+</head>
+
+<body>
+
+    <div id="starsContainer">
+
+        <div class="eachStar" id="star1"></div>
+        <div class="eachStar" id="star2"></div>
+        <div class="eachStar" id="star3"></div>
+        <div class="eachStar" id="star4"></div>
+        <div class="eachStar" id="star5"></div>
+        <div class="eachStar" id="star6"></div>
+        <div class="eachStar" id="star7"></div>
+        <div class="eachStar" id="star8"></div>
+        <div class="eachStar" id="star9"></div>
+        <div class="eachStar" id="star10"></div>
+        <div class="eachStar" id="star11"></div>
+        <div class="eachStar" id="star12"></div>
+        <div class="eachStar" id="star13"></div>
+        <div class="eachStar" id="star14"></div>
+        <div class="eachStar" id="star15"></div>
+        <div class="eachStar" id="star16"></div>
+        <div class="eachStar" id="star17"></div>
+        <div class="eachStar" id="star18"></div>
+        <div class="eachStar" id="star19"></div>
+        <div class="eachStar" id="star20"></div>
+        <div class="eachStar" id="star21"></div>
+        <div class="eachStar" id="star22"></div>
+        <div class="eachStar" id="star23"></div>
+        <div class="eachStar" id="star24"></div>
+        <div class="eachStar" id="star25"></div>
+        <div class="eachStar" id="star26"></div>
+        <div class="eachStar" id="star27"></div>
+        <div class="eachStar" id="star28"></div>
+        <div class="eachStar" id="star29"></div>
+        <div class="eachStar" id="star30"></div>
+    </div>
+    <div id="sunContainer">
+        <div id="sun"></div>
+    </div>
+    <div id="moonContainer">
+        <div class="eclipse eclipseOne"></div>
+        <div class="eclipse eclipseTwo"></div>
+    </div>
+
+    <div id="wishes">
+        <h1>مرحبًا يا شهر رمضان</h1>
+    </div>
+
+    <div id="mosqueContainer">
+        <img src="https://i.postimg.cc/qvxDq3fS/mosque-clipart-green.png" alt="Mosque image" id="mosqueImage">
+    </div>
+    
+
+
+    <footer>
+        <div>Note: Click on sun</div>
+        <div ><audio  controls loop>
+            <source src="ramadan.mp3" type="audio/mpeg">
+            Browsermu tidak mendukung tag audio
+          </audio>
+        </div>
+        <div>Created with ❤ by khaerulti. <a href="#" target="_blank">klick me</a>
+        </div>
+        
+    </footer>
+
+</body>
+<script>
+
+
+let sun = document.querySelector("#sun");
+let sunContainer = document.querySelector("#sunContainer");
+let starsContainer = document.querySelector("#starsContainer");
+let body = document.querySelector("body");
+let wishes = document.querySelector("#wishes");
+let mosqueImg = document.querySelector("#mosqueImage");
+let moonContainer = document.querySelector("#moonContainer");
+
+sun.addEventListener("click", () => {
+  console.log("clicked on sun");
+  body.classList.add("bg-dark");
+  sunContainer.classList.add("slideOutLeft");
+  moonContainer.classList.add("slideInDown");
+  wishes.style.display = "block";
+  wishes.classList.add("slideInDown");
+  mosqueImg.style.opacity = 1;
+
+  setTimeout(function () {
+    sunContainer.style.display = "none";
+
+    moonContainer.classList.remove("slideOutUp");
+    moonContainer.style.display = "flex";
+  }, 3000);
+
+  setTimeout(function () {
+    starsContainer.style.display = "block";
+  }, 7000);
+});
+
+moonContainer.addEventListener("click", () => {
+  console.log("clicked on moon");
+
+  moonContainer.classList.add("slideOutUp");
+  sunContainer.classList.remove("slideOutLeft");
+
+  wishes.style.display = "none";
+  setTimeout(function () {
+    sunContainer.classList.add("slideInDown");
+    body.classList.remove("bg-dark");
+    body.classList.add("bg-white");
+    sunContainer.style.display = "flex";
+    starsContainer.style.display = "none";
+    mosqueImg.style.opacity = 0.1;
+    moonContainer.style.display = "none";
+  }, 3000);
+});
+
+
+
+</script>
+
+</html>
